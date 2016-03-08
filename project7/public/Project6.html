@@ -80,7 +80,25 @@ $("#button").click(function(e){
   
   });
 	    
-	 });
+});
+	
+</script>
+
+<script>
+var totalString = "";
+$(document).ready(function() {
+$("#catButton").click(function(e){
+	var catURL = "../getcat?q=";
+		
+$.get( catURL, function( data ) {
+console.log("the cat data is" + data);
+console.log("html is: " + "<img src=" + "http://52.35.39.91:3000" +  data + "\">");
+  $( "#catPicture" ).html( "<img src=" + "\"http://52.35.39.91:3000" +  data + "\">");
+});
+	       
+});
+	    
+});
 	
 </script>
 
@@ -101,6 +119,14 @@ Suggestion: <span id="txtHint">Empty</span>
   click find weather submit button to find how many neutral minions have been killed. <br>
 <span id = "totalNeutralMinionsKilled">Empty</span>
 </p>
+
+<p> 
+<input id = "catButton" type = "submit" value = "Submit" >
+Click this button to reveal a cat gif! 
+</input>
+<div id = "catPicture"></id>
+</p>
+
 
 </body>
 </html>
